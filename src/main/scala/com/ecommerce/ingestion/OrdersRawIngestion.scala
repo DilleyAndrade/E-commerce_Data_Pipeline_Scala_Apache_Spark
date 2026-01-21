@@ -1,6 +1,6 @@
 package com.ecommerce.ingestion
 
-import com.ecommerce.utils.SparkSessionUtil
+import com.ecommerce.utils.{SparkSessionUtil, StructSchemaUtil}
 
 object OrdersRawIngestion {
   private val orig_path = "data_source/orders/olist_orders_dataset.csv"
@@ -12,5 +12,11 @@ object OrdersRawIngestion {
     .option("delimiter",",")
     .option("encoding","UTF-8")
     .option("inferSchema","true")
+    .schema(StructSchemaUtil.orders_schema)
     .csv(orig_path)
+
+  def ordersRawIngestion(): Unit = {
+    //df_orders.write.coalesce(1).mode("append").csv(dstn_path)
+  }
+
 }
