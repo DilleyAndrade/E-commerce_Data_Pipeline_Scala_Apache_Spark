@@ -2,6 +2,6 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <option name="separateProdTestSources" value="true" />
-    <profile name="sbt 1" modules="E-commerce_Data_Pipeline_Scala_Apache_Spark,E-commerce_Data_Pipeline_Scala_Apache_Spark.main,E-commerce_Data_Pipeline_Scala_Apache_Spark.test" />
+    <profile name="sbt 1" modules="E-commerce_Data_Pipeline_Scala_Apache_Spark,E-commerce_Data_Pipeline_Scala_Apache_Spark.main,E-commerce_Data_Pipeline_Scala_Apache_Spark.test,e-commerce_data_pipeline_scala_apache_spark_1231,e-commerce_data_pipeline_scala_apache_spark_1231.main,e-commerce_data_pipeline_scala_apache_spark_1231.test" />
   </component>
 </project>
