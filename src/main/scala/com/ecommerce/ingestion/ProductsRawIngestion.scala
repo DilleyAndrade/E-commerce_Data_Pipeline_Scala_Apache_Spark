@@ -1,0 +1,22 @@
+package com.ecommerce.ingestion
+
+import com.ecommerce.utils.{SparkSessionUtil, StructSchemaUtil}
+
+object ProductsRawIngestion {
+  private val orig_path = "data_source/products/olist_products_dataset.csv"
+  private val dstn_path = "/products/"
+
+  val df_products = SparkSessionUtil.spark
+    .read
+    .option("header","true")
+    .option("delimiter",",")
+    .option("encoding","UTF-8")
+    .option("inferSchema","true")
+    .schema(StructSchemaUtil.products_schema)
+    .csv(orig_path)
+
+  def productsRawIngestion(): Unit = {
+    //df_products.write.coalesce(1).mode("append").csv(dstn_path)
+  }
+
+}
