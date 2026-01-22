@@ -24,5 +24,6 @@ object CustomersRawIngestion {
       .mode("append")
       .option("compression", "snappy")
       .parquet(dstn_path)
+
   }
 }
