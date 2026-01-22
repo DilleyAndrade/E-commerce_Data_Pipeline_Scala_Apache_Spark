@@ -16,7 +16,7 @@ object ProductsRawIngestion {
     .csv(orig_path)
 
   def productsRawIngestion(): Unit = {
-    //df_products.write.coalesce(1).mode("append").csv(dstn_path)
+    //df_products.coalesce(1).write.mode("append").csv(dstn_path)
   }
 
 }

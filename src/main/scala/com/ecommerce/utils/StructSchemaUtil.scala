@@ -43,4 +43,12 @@ object StructSchemaUtil {
     .add("price",               DoubleType)
     .add("freight_value",       DoubleType)
 
+  val customers_schema = structType
+    .add("customer_id",               StringType)
+    .add("customer_unique_id",        StringType)
+    .add("customer_zip_code_prefix",  IntegerType)
+    .add("customer_city",             StringType)
+    .add("customer_state",            StringType)
+
+
 }
