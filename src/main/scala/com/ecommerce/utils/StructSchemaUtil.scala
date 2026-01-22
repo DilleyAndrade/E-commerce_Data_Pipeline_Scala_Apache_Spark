@@ -27,7 +27,7 @@ object StructSchemaUtil {
     .add("product_height_cm",           IntegerType)
     .add("product_width_cm",            IntegerType)
 
-  val order_payment_schema = structType
+  val order_payments_schema = structType
     .add("order_id",              StringType)
     .add("payment_sequential",   IntegerType)
     .add("payment_type",         StringType)

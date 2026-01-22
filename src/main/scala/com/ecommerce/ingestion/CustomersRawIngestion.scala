@@ -2,16 +2,15 @@ package com.ecommerce.ingestion
 
 import com.ecommerce.utils.{SparkSessionUtil, StructSchemaUtil}
 
-object CustomerRawIngestion {
+object CustomersRawIngestion {
   private val orig_path = "data_source/customers/olist_customers_dataset.csv"
-  private val dstn_path = "/customers/"
+  private val dstn_path = "data/raw/customers/"
 
   val df_customers = SparkSessionUtil.spark
     .read
     .option("header","true")
     .option("delimiter",",")
     .option("encoding","UTF-8")
-    .option("inferSchema","true")
     .schema(StructSchemaUtil.customers_schema)
     .csv(orig_path)
 

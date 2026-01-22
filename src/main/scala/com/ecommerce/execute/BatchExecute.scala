@@ -1,6 +1,6 @@
 package com.ecommerce.execute
 
-import com.ecommerce.ingestion.{OrderPaymentRawIngestion, OrdersRawIngestion, ProductsRawIngestion}
+import com.ecommerce.ingestion.{CustomersRawIngestion, OrderItemsRawIngestion, OrderPaymentsRawIngestion, OrdersRawIngestion, ProductsRawIngestion}
 
 object BatchExecute {
   def main(args:Array[String]): Unit = {
@@ -10,7 +10,13 @@ object BatchExecute {
     ProductsRawIngestion.df_products.show()
     ProductsRawIngestion.df_products.printSchema()
 
-    OrderPaymentRawIngestion.df_order_payments.show()
-    OrderPaymentRawIngestion.df_order_payments.printSchema()
+    OrderPaymentsRawIngestion.df_order_payments.show()
+    OrderPaymentsRawIngestion.df_order_payments.printSchema()
+
+    CustomersRawIngestion.df_customers.show()
+    CustomersRawIngestion.df_customers.printSchema()
+
+    OrderItemsRawIngestion.df_order_items.show()
+    OrderItemsRawIngestion.df_order_items.printSchema()
   }
 }
