@@ -4,10 +4,17 @@ import com.ecommerce.ingestion.{CustomersRawIngestion, OrderItemsRawIngestion, O
 
 object BatchExecute {
   def main(args:Array[String]): Unit = {
-    OrdersRawIngestion.df_orders.show()
-    OrdersRawIngestion.df_orders.printSchema()
 
-    println("Exportando dados")
-    OrdersRawIngestion.ordersRawIngestion()
+    def rawIngestionProcess(): Unit = {
+      println("Iniciando ingestão da camada Raw!")
+      CustomersRawIngestion.customersRawIngestion()
+      OrderItemsRawIngestion.orderItemsRawIngestion()
+      OrderPaymentsRawIngestion.orderPaymentsRawIngestion()
+      OrdersRawIngestion.ordersRawIngestion()
+      ProductsRawIngestion.productsRawIngestion()
+      println("Ingestão da camada Raw finalizada com sucesso!")
+    }
+
+
   }
 }
