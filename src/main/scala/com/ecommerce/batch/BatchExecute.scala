@@ -1,4 +1,4 @@
-package com.ecommerce.execute
+package com.ecommerce.batch
 
 import com.ecommerce.ingestion.{CustomersRawIngestion, OrderItemsRawIngestion, OrderPaymentsRawIngestion, OrdersRawIngestion, ProductsRawIngestion}
 
@@ -16,7 +16,7 @@ object BatchExecute {
 
       println("Ingestão da camada Raw finalizada com sucesso!")
     }
-
+    rawIngestionProcess()
 
   }
 }
