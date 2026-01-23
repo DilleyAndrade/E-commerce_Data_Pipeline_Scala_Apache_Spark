@@ -7,11 +7,13 @@ object BatchExecute {
 
     def rawIngestionProcess(): Unit = {
       println("Iniciando ingestão da camada Raw!")
+
       CustomersRawIngestion.customersRawIngestion()
       OrderItemsRawIngestion.orderItemsRawIngestion()
       OrderPaymentsRawIngestion.orderPaymentsRawIngestion()
       OrdersRawIngestion.ordersRawIngestion()
       ProductsRawIngestion.productsRawIngestion()
+
       println("Ingestão da camada Raw finalizada com sucesso!")
     }
 
