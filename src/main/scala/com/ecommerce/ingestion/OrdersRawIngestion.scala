@@ -1,31 +1,31 @@
 package com.ecommerce.ingestion
 
-import com.ecommerce.utils.{CsvReaderUtil, StructSchemaUtil}
+import com.ecommerce.utils.{CsvFilesUtil, StructSchemaUtil}
 import java.time.LocalDate
 
 object OrdersRawIngestion {
 
   val tableName = "orders"
-  val tableSchema = StructSchemaUtil.orders_schema
-  val actual_data = LocalDate.now()
-  private val csv_path = s"data_source/${tableName}/olist_${tableName}_dataset.csv"
-  private val dstn_path = s"data/raw/${tableName}/${tableName}-${actual_data}"
+  val tableSchema = StructSchemaUtil.ordersSchema
+  val actualData = LocalDate.now()
+  private val csvPath = s"data_source/${tableName}/olist_${tableName}_dataset.csv"
+  private val dstnPath = s"data/raw/${tableName}/${tableName}-${actualData}"
 
-  def ordersRawIngestion(): Unit = {
+  def customersRawIngestion(): Unit = {
     try{
       println(s"Lendo tabela ${tableName}.")
 
-      val df_orders = CsvReaderUtil.loadTable(",", tableSchema , csv_path)
-      df_orders.show(5)
+      val dtfe = CsvFilesUtil.loadTable(",", tableSchema , csvPath)
+      dtfe.show(5)
 
-      println(s"Salvando tabela ${tableName} na camada Raw, no diretório: ${dstn_path}")
+      println(s"Salvando tabela ${tableName} na camada Raw, no diretório: ${dstnPath}")
 
-      df_orders
+      dtfe
         .write
         .mode("overwrite")
         //.partitionBy()
         .option("compression", "snappy")
-        .parquet(dstn_path)
+        .parquet(dstnPath)
 
       println(s"Tabela ${tableName} Raw salva com sucesso!")
 

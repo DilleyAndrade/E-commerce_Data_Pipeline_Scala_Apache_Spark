@@ -6,7 +6,7 @@ object StructSchemaUtil {
 
   private val structType = new StructType()
 
-  val orders_schema = structType
+  val ordersSchema = structType
     .add("order_id",                      StringType)
     .add("customer_id",                   StringType)
     .add("order_status",                  StringType)
@@ -16,7 +16,7 @@ object StructSchemaUtil {
     .add("order_delivered_customer_date", TimestampType)
     .add("order_estimated_delivery_date", TimestampType)
 
-  val products_schema = structType
+  val productsSchema = structType
     .add("product_id",                  StringType)
     .add("product_category_name",       StringType)
     .add("product_name_lenght",         IntegerType)
@@ -27,14 +27,14 @@ object StructSchemaUtil {
     .add("product_height_cm",           IntegerType)
     .add("product_width_cm",            IntegerType)
 
-  val order_payments_schema = structType
+  val orderPaymentsSchema = structType
     .add("order_id",              StringType)
     .add("payment_sequential",   IntegerType)
     .add("payment_type",         StringType)
     .add("payment_installments", IntegerType)
     .add("payment_value",        DoubleType)
 
-  val order_items_schema = structType
+  val orderItemsSchema = structType
     .add("order_id",            StringType)
     .add("order_item_id",       IntegerType)
     .add("product_id",          StringType)
@@ -43,7 +43,7 @@ object StructSchemaUtil {
     .add("price",               DoubleType)
     .add("freight_value",       DoubleType)
 
-  val customers_schema = structType
+  val customersSchema = structType
     .add("customer_id",               StringType)
     .add("customer_unique_id",        StringType)
     .add("customer_zip_code_prefix",  IntegerType)
